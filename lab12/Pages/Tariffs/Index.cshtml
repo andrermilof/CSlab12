@@ -1,0 +1,48 @@
+﻿@page
+@model lab12.Pages.Tariffs.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tariff[0].ProviderId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tariff[0].Speed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tariff[0].Cost)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Tariff) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProviderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Speed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.TariffId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.TariffId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.TariffId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

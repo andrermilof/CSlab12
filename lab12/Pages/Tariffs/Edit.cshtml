@@ -1,0 +1,45 @@
+﻿@page
+@model lab12.Pages.Tariffs.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Tariff</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Tariff.TariffId" />
+            <div class="form-group">
+                <label asp-for="Tariff.ProviderId" class="control-label"></label>
+                <input asp-for="Tariff.ProviderId" class="form-control" />
+                <span asp-validation-for="Tariff.ProviderId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tariff.Speed" class="control-label"></label>
+                <input asp-for="Tariff.Speed" class="form-control" />
+                <span asp-validation-for="Tariff.Speed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tariff.Cost" class="control-label"></label>
+                <input asp-for="Tariff.Cost" class="form-control" />
+                <span asp-validation-for="Tariff.Cost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
